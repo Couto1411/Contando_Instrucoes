@@ -5,7 +5,7 @@
 #include<stdlib.h>
 #include<stdbool.h>
 
-#define MATTAM 10
+#define MATTAM 20
 
 typedef struct Item{
 	int val;
@@ -20,8 +20,11 @@ typedef struct Matrix{
 
 void preencherMatriz(Matrix *m);
 void printaMatrix(Matrix *m);
+void printCaminho(Matrix *m);
 void andarMatriz(Matrix *m);
 int checaParede(int iAtual, int jAtual);
-void printaPos(Matrix *m);
+void andaBaixo(Matrix *m);
+void andaDireita(Matrix *m);
+void andaEsquerda(Matrix *m);
 
 #endif 

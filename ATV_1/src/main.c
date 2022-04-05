@@ -1,19 +1,12 @@
 #include "matrix.h"
 
 int main(){
-    int temp;
 	Matrix m;
-
 	preencherMatriz(&m);
+    printf("A Matriz preenchida e:\n");
     printaMatrix(&m);
-    printaPos(&m);
     andarMatriz(&m);
-    printaMatrix(&m);
-    printaPos(&m);
-    scanf("%d",&temp);
-    
-    
-    
-
+    printf("O caminho percorrido foi:\n");
+    printCaminho(&m);
 	return 0;
 }
