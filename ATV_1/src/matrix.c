@@ -15,7 +15,7 @@ void preencherMatriz(Matrix *matriz){
     {
         for (int j = 0; j < MATTAM; j++)
         { 
-            matriz->vet[i][j].val=rand()%94;
+            matriz->vet[i][j].val=rand()%4;
             matriz->vet[i][j].passou=false;
         }
     }
@@ -66,7 +66,7 @@ void andarMatriz(Matrix *m){
             andaBaixo(m);
             break;
         case 4:
-            if ((m->vet[m->iAtual+1][m->jAtual].val>(m->vet[m->iAtual][m->jAtual-1].val)))
+            if ((m->vet[m->iAtual+1][m->jAtual].val>=(m->vet[m->iAtual][m->jAtual-1].val)))
                 andaBaixo(m);
             else{
                 if (m->vet[m->iAtual][m->jAtual-1].passou==false)
@@ -76,22 +76,22 @@ void andarMatriz(Matrix *m){
             }
             break;
         case 5:
-            if ((m->vet[m->iAtual+1][m->jAtual].val>(m->vet[m->iAtual][m->jAtual+1].val))&&(m->vet[m->iAtual+1][m->jAtual].val>(m->vet[m->iAtual][m->jAtual-1].val)))
+            if ((m->vet[m->iAtual+1][m->jAtual].val>=(m->vet[m->iAtual][m->jAtual+1].val))&&(m->vet[m->iAtual+1][m->jAtual].val>=(m->vet[m->iAtual][m->jAtual-1].val)))
             {
                 if (m->vet[m->iAtual+1][m->jAtual].passou==false)
                     andaBaixo(m);
                 else{
-                    if (m->vet[m->iAtual][m->jAtual+1].val>m->vet[m->iAtual][m->jAtual-1].val)
+                    if (m->vet[m->iAtual][m->jAtual+1].val>=m->vet[m->iAtual][m->jAtual-1].val)
                         andaDireita(m);
                     else
                         andaEsquerda(m);
                 }
             }
-            else if((m->vet[m->iAtual][m->jAtual+1].val>(m->vet[m->iAtual+1][m->jAtual].val))&&(m->vet[m->iAtual][m->jAtual+1].val>(m->vet[m->iAtual][m->jAtual-1].val))){
+            else if((m->vet[m->iAtual][m->jAtual+1].val>=(m->vet[m->iAtual+1][m->jAtual].val))&&(m->vet[m->iAtual][m->jAtual+1].val>=(m->vet[m->iAtual][m->jAtual-1].val))){
                 if (m->vet[m->iAtual][m->jAtual+1].passou==false)
                     andaDireita(m);
                 else{
-                    if (m->vet[m->iAtual+1][m->jAtual].val>m->vet[m->iAtual][m->jAtual-1].val)
+                    if (m->vet[m->iAtual+1][m->jAtual].val>=m->vet[m->iAtual][m->jAtual-1].val)
                         andaBaixo(m);
                     else
                         andaEsquerda(m);
@@ -101,7 +101,7 @@ void andarMatriz(Matrix *m){
                 if (m->vet[m->iAtual][m->jAtual-1].passou==false)
                     andaEsquerda(m);
                 else{
-                    if (m->vet[m->iAtual+1][m->jAtual].val>m->vet[m->iAtual][m->jAtual+1].val)
+                    if (m->vet[m->iAtual+1][m->jAtual].val>=m->vet[m->iAtual][m->jAtual+1].val)
                         andaBaixo(m);
                     else
                         andaDireita(m);
@@ -123,21 +123,15 @@ void andarMatriz(Matrix *m){
     printf("A soma dos lugares passados e: %d\n",soma+m->vet[0][0].val);
 }
 int checaParede(int iAtual, int jAtual){
-    if(iAtual==0 && jAtual==0)
-        return 1;
-    else if(iAtual==0 && (jAtual!=0 && jAtual!=MATTAM-1))
+    if((iAtual==0 && jAtual==0)||(iAtual==0 && (jAtual!=0 && jAtual!=MATTAM-1))||((iAtual!=0 && iAtual!=MATTAM-1)&& jAtual==0))
         return 1;
     else if(iAtual==0 && jAtual==MATTAM-1)
         return 3;
-    else if((iAtual!=0 && iAtual!=MATTAM-1)&& jAtual==0)
-        return 1;
-    else if((iAtual!=0 && iAtual!=MATTAM-1)&& (jAtual!=0 && jAtual!=MATTAM-1))
-        return 5;
     else if((iAtual!=0 && iAtual!=MATTAM-1)&& jAtual==MATTAM-1)
         return 4;
-    else if(iAtual==MATTAM-1 && jAtual==0)
-        return 7;
-    else if(iAtual==MATTAM-1 && (jAtual!=0 && jAtual!=MATTAM-1))
+    else if((iAtual!=0 && iAtual!=MATTAM-1)&& (jAtual!=0 && jAtual!=MATTAM-1))
+        return 5;
+    else if((iAtual==MATTAM-1 && jAtual==0)||(iAtual==MATTAM-1 && (jAtual!=0 && jAtual!=MATTAM-1)))
         return 7;
     else if(iAtual==MATTAM-1 && jAtual==MATTAM-1)
         return 9;

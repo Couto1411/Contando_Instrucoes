@@ -5,7 +5,7 @@
 #include<stdlib.h>
 #include<stdbool.h>
 
-#define MATTAM 20
+#define MATTAM 10
 
 typedef struct Item{
 	int val;
