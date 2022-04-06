@@ -87,6 +87,17 @@ Ao final do ciclo é impressa a soma dos passos e o somatório do caminho;
 
 4) A quarta função *printCaminho(&m)* mostra a relação de 1 e 0 para cada posição do caminho percorrido, sendo 1=passou e 0=não passou;
 
+# Perguntas
+
+1) Há mais de uma maneira de resolver esse problema ?    
+R: Creio que sim, algo relacionado a ordenação pode ser possível;   
+
+2) Há algoritmos em literatura que resolvam esse problema ?    
+R: Dando uma passada de olho no livro base da disciplina por Cormen, acredito que o capítulo 16 "Greedy Algorithms" pode ser utilizado para resolver o problema;    
+
+3) Pode existir mais de um caminho cujo valor total é o maximo?     
+R: Claro, no caso de a matriz ser igual, um caminho que começa para direita e um caminho que começa pra baixo teriam a mesma soma total;     
+
 # Compilação e Execução
 
 O programa possui um arquivo Makefile que realiza todo o procedimento de compilação e execução. Para tanto, temos as seguintes diretrizes de execução:
