@@ -15,7 +15,7 @@ void preencherMatriz(Matrix *matriz){
     {
         for (int j = 0; j < MATTAM; j++)
         { 
-            matriz->vet[i][j].val=rand()%4;
+            matriz->vet[i][j].val=rand()%100;
             matriz->vet[i][j].passou=false;
         }
     }
@@ -77,16 +77,7 @@ void andarMatriz(Matrix *m){
             break;
         case 5:
             if ((m->vet[m->iAtual+1][m->jAtual].val>=(m->vet[m->iAtual][m->jAtual+1].val))&&(m->vet[m->iAtual+1][m->jAtual].val>=(m->vet[m->iAtual][m->jAtual-1].val)))
-            {
-                if (m->vet[m->iAtual+1][m->jAtual].passou==false)
-                    andaBaixo(m);
-                else{
-                    if (m->vet[m->iAtual][m->jAtual+1].val>=m->vet[m->iAtual][m->jAtual-1].val)
-                        andaDireita(m);
-                    else
-                        andaEsquerda(m);
-                }
-            }
+                andaBaixo(m);
             else if((m->vet[m->iAtual][m->jAtual+1].val>=(m->vet[m->iAtual+1][m->jAtual].val))&&(m->vet[m->iAtual][m->jAtual+1].val>=(m->vet[m->iAtual][m->jAtual-1].val))){
                 if (m->vet[m->iAtual][m->jAtual+1].passou==false)
                     andaDireita(m);
