@@ -16,27 +16,18 @@ Tendo como base as instruções disponibilizadas no moodle, e as regras:
 >6. Andando na matriz conforme as regras acima, qual o maior caminho do início até o final, sabendo-se que a soma das posições representa o tamanho do caminho.
 
 # Logica
-<p align="justify">
-Foi-se feito um programa com a seguinte lógica:
-Existe um objeto **Matrix** que possui uma matriz do objeto **Item**, e dois integer que ditam a posição que está se verificando no ciclo atual.
-O objeto **Item** possui um integer que dita o valor daquele **Item**, e um booleano que é utilizado para checar se este **Item** já foi verificado.
-</p>
+Foi-se feito um programa com a seguinte lógica:    
+Existe um objeto **Matrix** que possui uma matriz do objeto **Item**, e dois integer que ditam a posição que está se verificando no ciclo atual.     
+O objeto **Item** possui um integer que dita o valor daquele **Item**, e um booleano que é utilizado para checar se este **Item** já foi verificado.    
 <p></p>
-<p align="justify">
-1) Ao entrar no programa a primeira função encontrada é *preencherMatriz(&m)*, que preenche uma **Matrix** m de tamanho MATTAM x MATTAM (Definido em matrix.h) com números aleatórios de 0 a 99, além de tornar os valores dos integers de posição e passagem para 0/false;
-</p>
-<p align="justify">
-2) A segunda função *printaMatrix(&m)* tem o objetivo de mostrar a **Matrix** m após seu preenchimento;
-</p>
-<p align="justify">
-3) A terceira função *andarMatriz(&m)* possui a seguinte lógica:
-</p>
-<p align="justify">
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Enquanto a posição atual não for igual a ultima:
-</p>
-<p align="justify">
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Checa para saber em qual dos quadrantes abaixo a posição atual está
-</p>
+
+1) Ao entrar no programa a primeira função encontrada é *preencherMatriz(&m)*, que preenche uma **Matrix** m de tamanho MATTAM x MATTAM (Definido em matrix.h) com números aleatórios de 0 a 99, além de tornar os valores dos integers de posição e passagem para 0/false;    
+
+2) A segunda função *printaMatrix(&m)* tem o objetivo de mostrar a **Matrix** m após seu preenchimento;     
+
+3) A terceira função *andarMatriz(&m)* possui a seguinte lógica:    
+         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Enquanto a posição atual não for igual a ultima:     
+         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Checa para saber em qual dos quadrantes abaixo a posição atual está     
 <p align="center">
 <img src="img/Quadrantes_matriz.png"/> 
 </p>
@@ -66,7 +57,7 @@ O objeto **Item** possui um integer que dita o valor daquele **Item**, e um bool
 - Roxo: 
     - Caminha para direita;
 
-- Vermelho:
+- Azul:
     1. Checa se o de baixo>=direita e baixo>=esquerda, se sim:
         - Caminha para baixo;
     2. Caso contrário, checa se o da direita>=baixo e direita>=esquerda:
@@ -84,19 +75,16 @@ O objeto **Item** possui um integer que dita o valor daquele **Item**, e um bool
             1. Checa se o de baixo>=direita, se sim:
                 - Caminha para baixo;
             2. Se não:
-                - Caminha para direita;
-<p>
-Obs.:
-</p>
+                - Caminha para direita;     
+Obs.:    
 - Caminhar quer dizer somar 1 à linha ou coluna atual, e tornar a verificação de passagem dessa posição como true;
 - A cada ciclo é somado 1 em um contador de passos;
 - A cada ciclo é somado o valor do item a um somatório do caminho;
 <p align="justify">
 Ao final do ciclo é impressa a soma dos passos e o somatório do caminho;
 </p>
-<p align="justify">
+
 4) A quarta função *printCaminho(&m)* mostra a relação de 1 e 0 para cada posição do caminho percorrido, sendo 1=passou e 0=não passou;
-</p>
 
 # Compilação e Execução
 
