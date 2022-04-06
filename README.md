@@ -75,7 +75,8 @@ O objeto **Item** possui um integer que dita o valor daquele **Item**, e um bool
             1. Checa se o de baixo>=direita, se sim:
                 - Caminha para baixo;
             2. Se não:
-                - Caminha para direita;     
+                - Caminha para direita;   
+  
 Obs.:    
 - Caminhar quer dizer somar 1 à linha ou coluna atual, e tornar a verificação de passagem dessa posição como true;
 - A cada ciclo é somado 1 em um contador de passos;
