@@ -18,13 +18,20 @@ typedef struct Matrix{
     int jAtual;
 }Matrix;
 
-void preencherMatriz(Matrix *m);
+typedef struct Caminho{
+	int vet[MATTAM*MATTAM];
+}Caminho;
+
+int contador;
+
+void preencherMatriz(Matrix *m,Caminho *c);
 void printaMatrix(Matrix *m);
 void printCaminho(Matrix *m);
-void andarMatriz(Matrix *m);
+void andarMatriz(Matrix *m,Caminho *c);
 int checaParede(int iAtual, int jAtual);
 void andaBaixo(Matrix *m);
 void andaDireita(Matrix *m);
 void andaEsquerda(Matrix *m);
+void printaCaminho(Caminho *c,int choice);
 
 #endif 

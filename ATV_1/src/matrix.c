@@ -1,6 +1,6 @@
 #include "matrix.h"
 
-void preencherMatriz(Matrix *matriz){
+void preencherMatriz(Matrix *matriz,Caminho *path){
     // Teste do moodle
     //int disp[7][7] = {{6,18,7,8,9,3,1},{27,45,50,6,5,1,2},{21,32,44,35,0,9,22},{15,11,7,45,4,18,7},{4,9,19,10,6,89,11},{23,23,27,1,91,77,6},{33,28,34,18,19,96,1}};
     // for (int i = 0; i < MATTAM; i++)
@@ -11,6 +11,9 @@ void preencherMatriz(Matrix *matriz){
     //         matriz->vet[i][j].passou=false;
     //     }
     // }
+    for (int i = 0; i < (MATTAM*MATTAM); i++)
+        path->vet[i]=-1;
+    
     for (int i = 0; i < MATTAM; i++)
     {
         for (int j = 0; j < MATTAM; j++)
@@ -43,10 +46,11 @@ void printCaminho(Matrix *m){
     }
     printf("\n");
 }
-void andarMatriz(Matrix *m){
+void andarMatriz(Matrix *m,Caminho *c){
     int soma=0;
     int caso;
     int cont=0;
+    c->vet[0]=m->vet[0][0].val;
     while ((m->iAtual<(MATTAM-1))||(m->jAtual<(MATTAM-1)))
     {
         caso=checaParede(m->iAtual,m->jAtual);
@@ -109,6 +113,8 @@ void andarMatriz(Matrix *m){
         }
         soma+= m->vet[m->iAtual][m->jAtual].val;
         cont++;
+        c->vet[cont]=m->vet[m->iAtual][m->jAtual].val;
+        contador=cont;
     }
     printf("Para chegar no final da matriz foram necessários %d passos\n",cont);
     printf("A soma dos lugares passados e: %d\n",soma+m->vet[0][0].val);
@@ -128,6 +134,19 @@ int checaParede(int iAtual, int jAtual){
         return 9;
     else
         return 0;
+}
+void printaCaminho(Caminho *c,int choice){
+    if (choice!=1)
+    {
+        printf("Ordem correta:\n");
+        for (int i = 0; i < (contador+1); i++)
+            printf("%d ",c->vet[i]);
+    }
+    else{
+        printf("Ordem reversa:\n");
+        for (int i = contador; i >=0; i--)
+            printf("%d ",c->vet[i]);
+    }
 }
 void andaBaixo(Matrix *m){
     m->iAtual+=1;
